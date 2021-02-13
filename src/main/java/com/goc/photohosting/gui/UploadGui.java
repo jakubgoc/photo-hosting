@@ -10,7 +10,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-@Route("uploadImage")
+@Route("upload")
 public class UploadGui extends VerticalLayout {
 
     private ImageUploader imageUploader;
@@ -24,7 +24,7 @@ public class UploadGui extends VerticalLayout {
         Button button = new Button("upload");
         button.addClickListener(clickEvent ->
         {
-                String uploadedImage = imageUploader.UploadFile(textField.getValue());
+                String uploadedImage = imageUploader.UploadFileAndSaveToDb(textField.getValue());
                 Image image = new Image(uploadedImage, "not found");
                 label.setText("Zapisales obrazek.");
                 add(label);
